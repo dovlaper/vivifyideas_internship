@@ -20,6 +20,6 @@ class HomeController extends Controller
     {
         $name = 'Djuro';
 
-        return view('home',['name' => $name]);
+        return view('home', ['name' => $name]);
     }
 }
