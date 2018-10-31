@@ -15,7 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return '<h1>Zdravo Djuro</h1>';
-})->middleware('home');
-
+Route::get('/home', 'HomeController@foo')->middleware('home');
