@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return '<h1>Zdravo Djuro</h1>';
-});
+})->middleware('home');
 
