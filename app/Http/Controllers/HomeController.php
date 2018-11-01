@@ -14,7 +14,7 @@ class HomeController extends Controller
     /**
      * Bindes name 'Djuro' to 'name' in home view
      *
-     * @return mixed don't know what to write here...
+     * @return view
      */
     public function foo()
     {
