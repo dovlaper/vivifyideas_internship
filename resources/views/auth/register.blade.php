@@ -71,11 +71,17 @@
                             <label for="countries" class="col-md-4 col-form-label text-md-right">{{ __('Select country') }}</label>
 
                             <div class="col-md-6">
-                                <select id="countries", name="countries">
+                                <select id="countries" name="countries" class="form-control{{ $errors->has('countries') ? ' is-invalid' : '' }}" value="{{ old('countries') }}" required>
                                     @foreach ($countries as $country)
                                         <option>{{ $country->full_name }}</option>
                                     @endforeach
+                                    <option>proba</option>
                                 </select>
+                                @if ($errors->has('countries'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('countries') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
