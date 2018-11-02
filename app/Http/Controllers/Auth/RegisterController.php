@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DB;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -52,6 +53,9 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'countries' => 'required|string|exists:countries,full_name',
+            'company' => 'required|string',
+            'last_name' => 'required|string'
         ]);
     }
 
@@ -67,6 +71,21 @@ class RegisterController extends Controller
             'first_name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'last_name' => $data['last_name'],
+            'company' => $data['company'],
+            'country' => $data['countries']
         ]);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $countries = DB::table('countries')->get();
+
+        return view('auth.register', compact('countries'));
     }
 }
