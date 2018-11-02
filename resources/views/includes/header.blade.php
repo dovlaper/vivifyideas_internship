@@ -31,8 +31,8 @@
                                 </a> --}}
 
                                 <div>
-                                    <span>{{Auth::user()->first_name}}</span>
-                                    <span>{{Auth::user()->last_name}}</span>
+                                    <span>{{ Auth::user()->first_name }}</span>
+                                    <span>{{ Auth::user()->last_name }}</span>
                                     <a class="item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
